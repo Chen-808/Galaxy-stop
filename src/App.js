@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+//THE GALAXY PROJECT TO BE WORKED ON
+import * as React from "react";
+import { Routes, Route, Link } from 'react-router-dom'
+import FrontPage from "./frontPage/FrontPage";
+import Travelers from "./travelers/pages/Travelers";
+import Fuel from './fuel/pages/Fuel'
+import Finds from './finds/pages/Finds'
+import TravelExample from "./travelers/pages/TravelExample";
+import NotFound from "./notFound/NotFound";
+import FuelExample from "./fuel/pages/FuelExample";
+import NewTravel from "./travelers/pages/NewTravel";
+import NavBar from "./navigation/NavBar";
+import NewFuel from "./fuel/pages/NewFuel"
 
-function App() {
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Routes>
+
+        <Route path="/" element={<NavBar/>}> {/*The NavBar component will always appear on top */}
+          <Route index element={<FrontPage />} />
+          <Route path="travelers">
+            <Route index element={<Travelers />}/>
+            <Route path=":heyo" element={<TravelExample/>}/>
+            <Route path="newTravel" element={<NewTravel/>}/>
+          </Route>
+
+          <Route path="/fuel">
+            <Route index element={<Fuel />}/>
+            <Route path=":id" element={<FuelExample/>}/>
+            <Route path="newTravel" element={<NewFuel/>}/>
+          </Route>
+
+          <Route path="/finds" element={<Finds />}/>
+        </Route>
+
+        <Route path="*" element={<NotFound />}/>
+      </Routes>
+  
+  </>
+  )
+  
 }
 
-export default App;
+export default App
