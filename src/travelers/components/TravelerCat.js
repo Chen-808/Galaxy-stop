@@ -7,9 +7,13 @@ import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 import TravelExample from '../pages/TravelExample';
 
+
 function TravelerCat(props) {
   return (
-    <Card sx={{ maxWidth: 300}}>
+    <Card sx={{ 
+      maxWidth: 300,
+      backgroundColor: "card.main"
+      }}>
     <CardActionArea component={Link} to={`/travelers/${props.id}`}>
       <CardMedia 
         component="img"

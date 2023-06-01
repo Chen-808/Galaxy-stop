@@ -2,7 +2,8 @@ import React from 'react'
 
 function FrontPage() {
   return (
-    <div>FrontPage</div>
+    <div>FrontPage
+    </div>
   )
 }
 

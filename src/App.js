@@ -11,31 +11,37 @@ import FuelExample from "./fuel/pages/FuelExample";
 import NewTravel from "./travelers/pages/NewTravel";
 import NavBar from "./navigation/NavBar";
 import NewFuel from "./fuel/pages/NewFuel"
+import { useTheme, Theme, ThemeProvider } from '@mui/material'
+import { MainTheme } from "./Theme/MainTheme";
 
 function App(){
   return (
     <>
-      <Routes>
+      <ThemeProvider theme={MainTheme}>
+        <Routes>
 
-        <Route path="/" element={<NavBar/>}> {/*The NavBar component will always appear on top */}
-          <Route index element={<FrontPage />} />
-          <Route path="travelers">
-            <Route index element={<Travelers />}/>
-            <Route path=":heyo" element={<TravelExample/>}/>
-            <Route path="newTravel" element={<NewTravel/>}/>
+          <Route path="/" element={<NavBar/>}> {/*The NavBar component will always appear on top */}
+            <Route index element={<FrontPage />} />
+            <Route path="travelers">
+              <Route index element={<Travelers />}/>
+              <Route path=":heyo" element={<TravelExample/>}/>
+              <Route path="newTravel" element={<NewTravel/>}/>
+            </Route>
+
+            <Route path="/fuel">
+              <Route index element={<Fuel />}/>
+              <Route path=":id" element={<FuelExample/>}/>
+              <Route path="newTravel" element={<NewFuel/>}/>
+            </Route>
+
+            <Route path="/finds" element={<Finds />}/>
           </Route>
 
-          <Route path="/fuel">
-            <Route index element={<Fuel />}/>
-            <Route path=":id" element={<FuelExample/>}/>
-            <Route path="newTravel" element={<NewFuel/>}/>
-          </Route>
+          <Route path="*" element={<NotFound />}/>
+        </Routes>
 
-          <Route path="/finds" element={<Finds />}/>
-        </Route>
-
-        <Route path="*" element={<NotFound />}/>
-      </Routes>
+      </ThemeProvider>
+      
   
   </>
   )
