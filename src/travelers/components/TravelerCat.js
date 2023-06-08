@@ -13,7 +13,7 @@ function TravelerCat(props) {
       maxWidth: 300,
       backgroundColor: "primary.light"
       }}>
-    <CardActionArea component={Link} to={`/travelers/${props.userId}`}> {/* Brings u to finds the traveler has logged */}
+    <CardActionArea component={Link} to={`/travelers/${props.userId}/findings`}> {/* Brings u to finds the traveler has logged */}
       <CardMedia 
         component="img"
         height="150"

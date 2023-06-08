@@ -25,9 +25,9 @@ function App(){
             <Route index element={<FrontPage />} />
             <Route path="travelers">
               <Route index element={<Travelers />}/>
-              <Route path=":heyo" element={<TravelExample/>}/>
+              {/* <Route path=":heyo" element={<TravelExample/>}/> */}
               <Route path="newTravel" element={<NewTravel/>}/>
-              {/* <Route path=":userId/findings" element={<Finds/>}/>               */}
+              <Route path=":userId/findings" element={<Finds/>}/>              
             </Route>
 
             <Route path="/fuel">
