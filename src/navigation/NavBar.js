@@ -78,10 +78,20 @@ function NavBar() {
                                     icon
                                     value= {value}
                                     onChange={handleChange}
-                                    textColor="white"
-                                    indicatorColor="secondary"
-                                    aria-label="secondary tabs example"
+                                    textColor='inherit'
+                                    TabIndicatorProps={{
+                                        hidden: true, //hides this
+                                        sx:{backgroundColor:'primary.light'}
+                                    }}
+                                    sx={{
+                                        marginRight:0.5,
+                                        "& button":{borderRadius: 3},
+                                        "& button:hover": {backgroundColor: "primary.light"},
+                                        "& button.Mui-selected": {backgroundColor: "primary.light"},
+                                    }}
+                                    
                                     >
+
                                     {
                                         PAGES.map((page, index) => (
                                             <Tab key={index} value={index} label={page.name} onClick={(event)=>{navigate(page.url)}} />

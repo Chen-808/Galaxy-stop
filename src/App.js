@@ -13,6 +13,7 @@ import NavBar from "./navigation/NavBar";
 import NewFuel from "./fuel/pages/NewFuel"
 import { useTheme, Theme, ThemeProvider } from '@mui/material'
 import { MainTheme } from "./Theme/MainTheme";
+import TravelerFinds from "./finds/pages/TravelerFinds";
 
 function App(){
   return (
@@ -26,6 +27,7 @@ function App(){
               <Route index element={<Travelers />}/>
               <Route path=":heyo" element={<TravelExample/>}/>
               <Route path="newTravel" element={<NewTravel/>}/>
+              {/* <Route path=":userId/findings" element={<Finds/>}/>               */}
             </Route>
 
             <Route path="/fuel">
@@ -34,7 +36,9 @@ function App(){
               <Route path="newTravel" element={<NewFuel/>}/>
             </Route>
 
-            <Route path="/finds" element={<Finds />}/>
+            <Route path="/finds">
+              <Route index element={<Finds />}/>
+            </Route>
           </Route>
 
           <Route path="*" element={<NotFound />}/>

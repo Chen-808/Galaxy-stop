@@ -3,16 +3,17 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import CardActions from '@mui/material/CardActions';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-function FuelItem(props) {
-  return (
+function FindsItem(props) {
+    return (
     <Card sx={{ 
         maxWidth: 300,
         backgroundColor: "primary.light"
         }}>
-      <CardActionArea component={Link} to={`/fuel/${props.id}`}>
         <CardMedia 
           component="img"
           height="150"
@@ -21,12 +22,17 @@ function FuelItem(props) {
         />
         <CardContent>
           <Typography gutterBottom variant='h5'>{props.name}</Typography>
-          
-  
+          <Typography gutterBottom variant='h6'>{props.description}</Typography>
+          <Typography gutterBottom variant='h6'>Finder: {props.creator}</Typography>
+          <Typography gutterBottom variant='h6'>Address: {props.address}</Typography>
         </CardContent>
-      </CardActionArea>
+        <CardActions>
+            <Button size="small">View on map</Button>
+            <Button size="small">Edit</Button>
+            <Button size="small">Delete</Button>
+        </CardActions>
     </Card>
   )
 }
 
-export default FuelItem
+export default FindsItem

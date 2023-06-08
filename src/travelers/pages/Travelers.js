@@ -11,17 +11,17 @@ function Travelers() {
   const hi = [ ]
 
   const Travelers = [
-    {id:'t1',
+    {userId:'t1',
      name: 'cat1',
      pic: cat1,
      finds: 4},
 
-     {id:'t2',
+     {userId:'t2',
      name: 'cat2',
      pic: cat2,
      finds: 1},
 
-     {id:'t3',
+     {userId:'t3',
      name: 'cat3',
      pic: cat3,
      finds: 2}

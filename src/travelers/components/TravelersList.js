@@ -24,8 +24,8 @@ function TravelersList(props) {
       {props.items.map(traveler =>(
         <Grid item xs={12} sm={6} md={4}>
           <TravelerCat 
-            key={traveler.id}
-            id={traveler.id}
+            key={traveler.userId}
+            userId={traveler.userId}
             image={traveler.pic}
             name={traveler.name}
             findsCount={traveler.finds}/>

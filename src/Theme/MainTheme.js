@@ -7,7 +7,7 @@ const MainTheme = createTheme({
     palette:{
         primary: {
             main: `${galaxyPurple}` ,
-            light: "#76dbe1",
+            light: "#a798e3",
             dark: "#2182c0"
         },
         card:{
