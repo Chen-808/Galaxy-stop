@@ -5,14 +5,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
-import TravelExample from '../pages/TravelExample';
 
 
 function TravelerCat(props) {
   return (
     <Card sx={{ 
       maxWidth: 300,
-      backgroundColor: "card.main"
+      backgroundColor: "primary.light"
       }}>
     <CardActionArea component={Link} to={`/travelers/${props.id}`}>
       <CardMedia 
