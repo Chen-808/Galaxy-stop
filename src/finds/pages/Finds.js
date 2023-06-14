@@ -6,7 +6,7 @@ import place3 from '../../images/place3.jpg'
 import { useParams } from 'react-router-dom'
 
 function Finds() {
-  //INSIDE
+  
   const places=[
     {
       placeId: 'p1',
