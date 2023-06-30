@@ -52,7 +52,6 @@ function NavBar() {
     {name: 'Fuel', url: '/fuel'},
     {name: 'Finds', url: '/finds'}
 ]
-  
 
   return (
     <>        
@@ -88,15 +87,11 @@ function NavBar() {
                                         "& button":{borderRadius: 3},
                                         "& button:hover": {backgroundColor: "primary.light"},
                                         "& button.Mui-selected": {backgroundColor: "primary.light"},
-                                    }}
-                                    
-                                    >
+                                    }}>
 
-                                    {
-                                        PAGES.map((page, index) => (
-                                            <Tab key={index} value={index} label={page.name} onClick={(event)=>{navigate(page.url)}} />
-                                        ))
-                                    }
+                                    {PAGES.map((page, index) => (
+                                        <Tab key={index} value={index} label={page.name} onClick={(event)=>{navigate(page.url)}} />
+                                    ))}
                                     
                                 </Tabs>
                                 <Button variant="contained" sx={{backgroundColor:'secondary'}}>Log In</Button>

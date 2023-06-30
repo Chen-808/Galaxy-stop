@@ -4,8 +4,12 @@ import place1 from '../../images/place1.jpg'
 import place2 from '../../images/place2.jpg'
 import place3 from '../../images/place3.jpg'
 import { useParams } from 'react-router-dom'
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
 function Finds() {
+  
+  const navigate = useNavigate();
   
   const places=[
     {
@@ -54,6 +58,7 @@ function Finds() {
     <>
       <h1>this is the main finds page that contains all finds by every traveler</h1>
       <FindsList items={loadedPlaces}></FindsList>
+      <Button variant="contained" onClick={(event)=>{navigate("/finds/new")}}>Add new find!</Button>
     </>
   )
 }

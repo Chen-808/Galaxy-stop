@@ -14,6 +14,7 @@ import NewFuel from "./fuel/pages/NewFuel"
 import { useTheme, Theme, ThemeProvider } from '@mui/material'
 import { MainTheme } from "./Theme/MainTheme";
 import TravelerFinds from "./finds/pages/TravelerFinds";
+import NewFind from "./finds/pages/NewFind"
 
 function App(){
   return (
@@ -38,6 +39,8 @@ function App(){
 
             <Route path="/finds">
               <Route index element={<Finds />}/>
+              <Route path="new" element={<NewFind/>}/>
+
             </Route>
           </Route>
 
