@@ -49,12 +49,65 @@ const places=[
 function ModifyFind() {
     const placeId = useParams().placeId
     const identifiedPlace = places.find(p => p.placeId=== placeId)
+    const {register, handleSubmit, formState:{errors}} = useForm()
+    const onSubmit=(data) => console.log(data)
+
   if (!identifiedPlace){
     return <h2>Place not found!</h2>
   }
   
     return (
-    <div>ModifyFind</div>
+        <Container maxWidth="xs">
+        <h1>Modify find</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Box 
+            mb={2} 
+            sx={{
+            '& .MuiTextField-root': { m: 0.5 },
+            marginTop:4
+          }}>
+            <TextField 
+              variant="outlined" 
+              label="PlaceName" 
+              defaultValue = {identifiedPlace.name}
+              fullWidth
+              {...register("name", {required:"Name required"})}
+              error={!!errors?.name}
+              helperText={errors?.name ? errors.name.message : null}
+              
+              />
+            <TextField 
+              variant="outlined" 
+              label="Description" 
+              defaultValue = {identifiedPlace.description}
+              multiline
+              rows={4}
+              fullWidth
+              {...register("description", {required:"Description required"})}
+              error={!!errors?.description}
+              helperText={errors?.description ? errors.description.message : null}
+              />
+  
+            <TextField 
+              variant="outlined" 
+              label="Address" 
+              defaultValue = {identifiedPlace.address}
+              fullWidth
+              {...register("address", {required:"Address required"})}
+              error={!!errors?.address}
+              helperText={errors?.address ? errors.address.message : null}
+              
+              />  
+          </Box>
+  
+          <Button type="submit"variant="contained" color="primary" >
+            Update place
+          </Button>
+        </form>
+        
+  
+  
+      </Container>
   )
 }
 
