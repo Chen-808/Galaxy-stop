@@ -8,13 +8,15 @@ import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 import Modal from '@mui/material/Modal';
 import ModalMap from './ModalMap';
+import { useNavigate } from 'react-router-dom';
 
 
 function FindsItem(props) {
-
+  const placeId = props.placeId
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const navigate = useNavigate();
 
     return (
     <Card sx={{ 
@@ -32,7 +34,7 @@ function FindsItem(props) {
           <Typography gutterBottom variant='h6'>{props.description}</Typography>
           <Typography gutterBottom variant='h6'>Finder: {props.identifier}</Typography>
           <Typography gutterBottom variant='h6'>Address: {props.address}</Typography>
-          <Typography gutterBottom variant='h6'>coordinates: {props.coordinates.lat}</Typography>
+          <Typography gutterBottom variant='h6'>coordinates: {props.coordinates.lat}, {props.coordinates.lng}</Typography>
         </CardContent>
         <CardActions>
             <Button size="small" onClick={handleOpen}>View on map</Button>
@@ -44,7 +46,7 @@ function FindsItem(props) {
             >
               <ModalMap lat={props.coordinates.lat} lng={props.coordinates.lng} address={props.address}/>
             </Modal>
-            <Button size="small">Edit</Button>
+            <Button size="small"  onClick={(event)=>{navigate(`/finds/${props.placeId}`)}}>Edit</Button>
             <Button size="small">Delete</Button>
         </CardActions>
     </Card>
